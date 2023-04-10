@@ -46,6 +46,7 @@ It is a simple producer and consumer demostration.
 - Linux and ARM 64bit
 - gcc-9
 - cmake 3.22
+- Boost
 
 Start building:
 
