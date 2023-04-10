@@ -60,14 +60,14 @@ make
 See help
 
 ```bash
-bin/main
+bin/demo_lock
 
 Usage: provide interval(ms) for producer and time span for running(s)
 
 ```
 
 ```bash
-bin/main 100 10
+bin/demo_lock 100 10
 ```
 
 
