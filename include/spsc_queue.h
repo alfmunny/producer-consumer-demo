@@ -6,6 +6,8 @@
 #include "queue_intf.h"
 
 namespace procon {
+
+// Ringbuffer implementation for queue. Single Producer/Single Consumer
 template <typename T>
 class SPSCQueue : public QueueIntf<T> {
 public:

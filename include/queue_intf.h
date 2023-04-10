@@ -1,6 +1,7 @@
 #pragma once
 
 namespace procon {
+// Interface for different queue implementations
 template <typename T>
 class QueueIntf {
 public:

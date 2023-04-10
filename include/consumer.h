@@ -9,6 +9,7 @@
 
 namespace procon {
 
+// Consumer class
 class Consumer {
 public:
     using QueueIntfPtr = std::shared_ptr<QueueIntf<DataFrame>>;

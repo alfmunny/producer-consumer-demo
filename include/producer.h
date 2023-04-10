@@ -9,10 +9,12 @@
 #include "data_frame.h"
 
 namespace procon {
+
+// Producer class
 class Producer {
 public:
     Producer(std::shared_ptr<QueueIntf<DataFrame>> data_frame_queue,
-             std::chrono::milliseconds);
+             std::chrono::milliseconds interval);
     ~Producer() = default;
 
 public:

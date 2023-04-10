@@ -17,7 +17,7 @@ It is a simple producer and consumer demostration.
 - Consumer should get the data from queue, filter it with a customizable function and send it out
 - They can run in different speeds
 - Advanced topics (Not implemented):
-  - If the producer and consumer and the queue should be distributed, or consumer has heavy IO operations while performing `send_data`, consider use a IO coroutine framework (Please chec my library: https://github.com/alfmunny/EVA01)
+  - If the producer and consumer and the queue should be distributed, or consumer has heavy IO operations while performing `send_data`, consider use a IO coroutine framework (Please check my library: https://github.com/alfmunny/EVA01)
     - Coroutine with a thread pool to handle the IO operations.
     - Lightweight Coroutine implemented with Event-based (epoll) user-space context switch.
     - All the socket family blocking IO needs to be hooked, bend them into coroutine.

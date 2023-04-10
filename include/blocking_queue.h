@@ -5,6 +5,7 @@
 #include "queue_intf.h"
 
 namespace procon {
+// Queue, blocking on pop while empty.
 template <typename T>
 class BlockingQueue : public QueueIntf<T> {
 public:
