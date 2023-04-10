@@ -13,6 +13,8 @@ struct DataFrame {
         m_frame.assign(frame.begin(), frame.end());
     }
 
+    size_t size() const { return m_frame.size(); }
+
     std::vector<char> m_frame;
 };
 

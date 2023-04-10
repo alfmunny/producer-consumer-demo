@@ -21,8 +21,11 @@ int main(int argc, char* argv[])
 
     procon::Producer producer(bq, prod_interval);
     // procon::Consumer consumer(bq, [](procon::DataFrame&) {});
-    procon::Consumer consumer(
-        bq, [](procon::DataFrame&) { std::this_thread::sleep_for(5ms); });
+    procon::Consumer consumer(bq, [](procon::DataFrame& data) {
+        std::cout << getCurrentTime() << " Filtering " << data.size()
+                  << " bytes data" << std::endl;
+        std::this_thread::sleep_for(5ms);
+    });
 
     std::thread prod_thr(&procon::Producer::run, &producer);
     std::thread cons_thr(&procon::Consumer::run, &consumer);

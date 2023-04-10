@@ -1,9 +1,11 @@
 #include <procon.h>
 
+#include <ctime>
 #include <iostream>
 #include <thread>
 
 using namespace std::chrono_literals;
+using namespace std::chrono;
 
 int main(int argc, char* argv[])
 {
@@ -20,8 +22,11 @@ int main(int argc, char* argv[])
     auto bq = std::make_shared<procon::SPSCQueue<procon::DataFrame>>(100);
 
     procon::Producer producer(bq, prod_interval);
-    procon::Consumer consumer(
-        bq, [](procon::DataFrame&) { std::this_thread::sleep_for(5ms); });
+    procon::Consumer consumer(bq, [](procon::DataFrame& data) {
+        std::cout << getCurrentTime() << " Filtering " << data.size()
+                  << " bytes data" << std::endl;
+        std::this_thread::sleep_for(5ms);
+    });
 
     std::thread prod_thr(&procon::Producer::run, &producer);
     std::thread cons_thr(&procon::Consumer::run, &consumer);

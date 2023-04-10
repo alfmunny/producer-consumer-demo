@@ -1,4 +1,5 @@
 #include <consumer.h>
+#include <util.h>
 
 #include <iostream>
 
@@ -12,8 +13,8 @@ Consumer::Consumer(std::shared_ptr<QueueIntf<DataFrame>> data_frame_queue,
 
 void Consumer::send_data(std::span<const char, frame_size> const& output)
 {
-    std::cout << "Transforming and sending " << output.size() << " bytes data"
-              << std::endl;
+    std::cout << getCurrentTime() << " Sending " << output.size()
+              << " bytes data" << std::endl;
 }
 
 void Consumer::run()

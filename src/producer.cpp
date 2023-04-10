@@ -1,4 +1,5 @@
 #include <producer.h>
+#include <util.h>
 
 #include <iostream>
 
@@ -17,7 +18,8 @@ Producer::Producer(std::shared_ptr<QueueIntf<DataFrame>> data_frame_queue,
 
 void Producer::get_data(std::span<char, frame_size> const& output)
 {
-    std::cout << "Producing " << output.size() << " bytes data" << std::endl;
+    std::cout << getCurrentTime() << " Producing " << output.size()
+              << " bytes data" << std::endl;
 }
 
 void Producer::run()
